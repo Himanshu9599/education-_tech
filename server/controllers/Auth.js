@@ -95,7 +95,7 @@ exports.signup = async (req, res) => {
       accountType: accountType,
       approved: approved,
       additionalDetails: profileDetails._id,
-      image: "",
+      image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fimages%2Fdefault-avatar-profile-icon-vector-social-media-user-image%2F346839683&psig=AOvVaw2CPjuI_BIk7D7CzNspw8G4&ust=1719328164201000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPjoidTC9IYDFQAAAAAdAAAAABAE",
     })
 
     return res.status(200).json({
