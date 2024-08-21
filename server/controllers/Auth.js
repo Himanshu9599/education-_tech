@@ -55,7 +55,7 @@ exports.signup = async (req, res) => {
       })
     }
 
-    // Find the most recent OTP for the email
+    // Find the most recent OTP for the email created help to return the most recent one and limit give the one otp this return array
     const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1)
     console.log(response)
     if (response.length === 0) {

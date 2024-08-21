@@ -8,7 +8,7 @@ const mongoose = require("mongoose")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
-  try {
+  try {//= "" so  they will be not undfine
     const {
       firstName = "",
       lastName = "",
@@ -70,6 +70,7 @@ exports.deleteAccount = async (req, res) => {
     }
     // Delete Assosiated Profile with the User
     await Profile.findByIdAndDelete({
+      // acutally we save additional_details IN USER IN STRING FORMat(ID) TO GET THAT ID in object form we use this method 
       _id: new mongoose.Types.ObjectId(user.additionalDetails),
     })
     for (const courseId of user.courses) {
@@ -159,6 +160,7 @@ exports.getEnrolledCourses = async (req, res) => {
         },
       })
       .exec()
+      // Calling userDetails.toObject() in Mongoose converts a Mongoose document into a plain JavaScript object.
     userDetails = userDetails.toObject()
     var SubsectionLength = 0
     for (var i = 0; i < userDetails.courses.length; i++) {
